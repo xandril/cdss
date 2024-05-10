@@ -1,13 +1,13 @@
 from ultralytics import YOLO, RTDETR
 
 yolo_config = {'save_period': 10,
-               'project': '../experiments/detr_10_11',
+               'project': '../experiments/detr_1',
                'name': 'try',
                'seed': 42,
                'epochs': 50,
                'imgsz': 512,
                'optimizer': 'AdamW',
-               'data': '../data/vinbigdata_10_11/data.yml',
+               'data': '../data/vinbigdata_1/data.yml',
                'pretrained': True,
                'device': 0,
                'batch': 8,
@@ -22,4 +22,5 @@ if __name__ == '__main__':
     model.info()
 
     results = model.train(**yolo_config)
-    print(results)
+
+    print(model.val())
